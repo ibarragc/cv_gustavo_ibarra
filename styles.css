@@ -1,0 +1,322 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100%;
+}
+
+/* INICIO definicion grid ------------------------------------ */
+.header {
+    grid-area: header;
+    background-color: #03aed8;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar {
+    grid-area: navbar;
+    background-color: #03aed8;
+}
+  
+.sidebar {
+    grid-area: sidebar;
+    background-color: #03aed8;
+}
+
+.sidebar ul li {
+    display: flex;
+    list-style: none; /* Quita los puntos de la lista desordenada */
+}
+
+.main {
+    grid-area: main;
+    background-color: #FFFFFF;
+}
+  
+.footer {
+    grid-area: footer;
+    background-color: #03aed8;
+}
+
+.grid-container {
+    display: grid;
+    gap: 1px; /* Separación entre contenedores */
+    grid-template:
+        "header"  100px
+        "navbar"  50px
+        "main"    auto
+        "sidebar" 100px
+        "footer"  100px;
+}
+/* FIN definicion grid --------------------------------------- */
+
+/* INICIO media queries -------------------------------------- */
+/* XS devices (600px o menos) */
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        grid-template:
+            "header"  100px
+            "navbar"  auto /*50px*/
+            "main"    auto
+            "sidebar" auto /*100px*/
+            "footer"  100px;
+    }
+}
+
+/* S devices (600px o mas) */
+@media only screen and (min-width: 600px) {
+    .grid-container {
+        grid-template:
+            "header  header" 100px
+            "navbar  navbar" auto /*50px*/
+            "sidebar main"   auto
+            "footer  footer" 100px / /* Anchos columnas */
+            220px    auto;
+    }
+}
+
+/* M devices (768px o mas) */
+@media only screen and (min-width: 768px) {
+    .grid-container {
+        grid-template:
+            "header  header" 100px
+            "navbar  navbar" 50px
+            "sidebar main"   auto
+            "footer  footer" 100px /
+            220px    auto;
+    }
+} 
+
+/* L devices (992px o mas) */
+@media only screen and (min-width: 992px) {
+    .grid-container {
+        grid-template:
+            "header  header" 100px
+            "navbar  navbar" 50px
+            "sidebar main"   auto
+            "footer  footer" 100px /
+            300px    auto;
+    }
+} 
+
+/* Xl devices (1200px o mas) */
+@media only screen and (min-width: 1200px) {
+    .grid-container {
+        grid-template:
+            "header  header" 100px
+            "navbar  navbar" 50px
+            "sidebar main"   auto
+            "footer  footer" 100px /
+            300px    auto;
+    }
+}
+/* FIN media queries ----------------------------------------- */
+
+h1 {
+    font-weight: 700;
+    font-size: 30px;
+    color:#FFFFFF;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.font0 {
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #03aed8;
+    margin-bottom: 12px;
+}
+
+.font1, .font-date {
+    font-weight: 500;
+    font-size: 18px;
+    color: #01495A;
+}
+
+.font2 {
+    font-weight: 500;
+    font-size: 15px;
+    color: #01495A;
+}
+
+.font3 {
+    font-weight: 500;
+    font-size: 18px;
+    color: #03aed8;
+    margin-bottom: 8px;
+}
+
+.font4 {
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.font5 {
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.sub {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+/* Barra de navegacion */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-text {
+    color: white;
+    text-decoration: none; /* Quita la linea de subrayado del enlace */
+}
+
+.nav-menu {
+    display: flex;
+    margin-right: 30px;
+    list-style: none; /* Quita los puntos de la lista desordenada */
+}
+
+.nav-menu-item {
+    font-size: 16px;
+    margin: 0 10px;
+    line-height: 50px;  /* Altura navbar */
+    width: max-content; /* Para item con 2 palabras en la misma linea */
+}
+
+.item-link {
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.item-link:hover {
+    background-color: #04548d;
+    transition: 0.5s; /* Menos brusca la transicion */
+}
+
+/* Botón para mostrar el menu en S devices */
+.nav-bars {
+    color: white;
+    background: none;   /* Cambiar estilo */
+    border: none;       /* Cambiar estilo */ 
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 100px; /* Altura header */
+    cursor: pointer;
+    display: none;      /* Visible solo en S devices */
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        background-color: #374e64;
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-menu-item {
+        line-height: 40px;
+    }
+  
+    .item-link:hover {
+        background-color: #374e64;
+        color: #65befd; /* Cambia color del font */
+    }
+
+    .nav-bars {
+        display: block; /* Visible solo en S devices */
+    }
+
+    .show_items {
+        display: none; /* Para usar classList.toggle */
+    }
+}
+
+/* Contenido */
+ul li {
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+.cert, .info, .font-date, .empresa, .exams {
+    margin-left: 20px;
+}
+
+.exams {
+    margin-top: 10px;
+}
+
+.experience {
+    list-style: none; /* Quita los puntos de la lista desordenada */
+}
+
+.date::before {
+    content: "";
+    position: absolute;
+    margin-top: 6px;
+    margin-left: -5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 2px solid #66d2f9;
+}
+
+.cert {
+    font-weight: 500;
+    font-size: 15px;
+    color: #01495A;   
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    color: #03aed8;
+    border-radius: 50%;
+    margin-top: 10px;
+    position: relative;
+}
+
+.icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dato {
+    margin-left: 12px;
+    margin-top: 20px;
+}
+
+#experience, #education, #certificates {
+    margin-left: 20px;
+}
+
+#experience, #mis_datos {
+    margin-top: 10px;
+}
+
+#certificates {
+    margin-bottom: 20px;
+}
